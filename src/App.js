@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Album from './components/Album';
 import Favorites from './components/Favorites';
 import Login from './components/Login';
@@ -7,6 +7,7 @@ import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import ProfileEdit from './components/ProfileEdit';
 import Search from './components/Search';
+import { createUser } from './services/userAPI';
 
 class App extends React.Component {
   constructor() {
@@ -14,6 +15,8 @@ class App extends React.Component {
     this.state = {
       loginEnabled: true,
       loginNameInput: '',
+      isLoginIn: false,
+      isLoggedIn: false,
     };
   }
 
@@ -32,19 +35,37 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.enableLoginButton);
   };
 
+  handleSubmitButon = async (e) => {
+    const { loginNameInput } = this.state;
+    e.preventDefault();
+    this.setState({ isLoginIn: true });
+    await createUser({ name: loginNameInput });
+    this.setState({
+      isLoginIn: false,
+      isLoggedIn: true,
+    });
+  };
+
   render() {
-    const { loginEnabled, loginNameInput } = this.state;
+    const { loginEnabled, loginNameInput, isLoginIn, isLoggedIn } = this.state;
     return (
       <BrowserRouter>
         <Switch>
           <Route
             exact
             path="/"
-            component={ Login }
-            loginEnabled={ loginEnabled }
-            loginNameInput={ loginNameInput }
-            handleChange={ this.handleChange }
-          />
+            render={
+              () => (<Login
+                loginEnabled={ loginEnabled }
+                loginNameInput={ loginNameInput }
+                isLoginIn={ isLoginIn }
+                handleChange={ this.handleChange }
+                handleSubmitButon={ this.handleSubmitButon }
+              />)
+            }
+          >
+            { isLoggedIn ? <Redirect to="/search" /> : null }
+          </Route>
           <Route exact path="/search" component={ Search } />
           <Route exact path="/album/:id" component={ Album } />
           <Route exact path="/favorites" component={ Favorites } />

@@ -5,11 +5,11 @@ import Loading from './Loading';
 class Login extends Component {
   render() {
     const {
-      loginEnabled,
+      loginDisabled,
       loginNameInput,
       isLoginIn,
       handleChange,
-      handleSubmitButon,
+      handleLoginButton,
     } = this.props;
     if (isLoginIn) {
       return (
@@ -35,8 +35,8 @@ class Login extends Component {
           <button
             type="submit"
             data-testid="login-submit-button"
-            disabled={ loginEnabled }
-            onClick={ handleSubmitButon }
+            disabled={ loginDisabled }
+            onClick={ handleLoginButton }
           >
             ENTRAR
           </button>
@@ -47,11 +47,11 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginEnabled: PropTypes.bool.isRequired,
+  loginDisabled: PropTypes.bool.isRequired,
   loginNameInput: PropTypes.string.isRequired,
   isLoginIn: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleSubmitButon: PropTypes.func.isRequired,
+  handleLoginButton: PropTypes.func.isRequired,
 };
 
 export default Login;

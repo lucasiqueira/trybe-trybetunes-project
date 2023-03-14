@@ -7,6 +7,7 @@ import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import ProfileEdit from './components/ProfileEdit';
 import Search from './components/Search';
+import searchAlbumsAPI from './services/searchAlbumsAPI';
 import { createUser } from './services/userAPI';
 
 class App extends React.Component {
@@ -19,6 +20,9 @@ class App extends React.Component {
       searchArtistInput: '',
       isLoginIn: false,
       isLoggedIn: false,
+      isSearching: false,
+      searchMade: '',
+      searchResults: [],
     };
   }
 
@@ -50,9 +54,22 @@ class App extends React.Component {
     });
   };
 
-  handleSearchButton = () => {
-    return;
-  }
+  handleSearchButton = (e) => {
+    e.preventDefault();
+    const { searchArtistInput } = this.state;
+    const stringToSearch = searchArtistInput;
+    this.setState({
+      isSearching: true,
+      searchArtistInput: '',
+    }, async () => {
+      const results = await searchAlbumsAPI(stringToSearch);
+      this.setState({
+        isSearching: false,
+        searchMade: stringToSearch,
+        searchResults: results,
+      });
+    });
+  };
 
   handleLoginButton = async (e) => {
     const { loginNameInput } = this.state;
@@ -70,9 +87,12 @@ class App extends React.Component {
       loginDisabled,
       loginNameInput,
       isLoginIn,
+      isSearching,
       isLoggedIn,
       searchDisabled,
       searchArtistInput,
+      searchMade,
+      searchResults,
     } = this.state;
     return (
       <BrowserRouter>
@@ -99,6 +119,9 @@ class App extends React.Component {
               () => (<Search
                 searchDisabled={ searchDisabled }
                 searchArtistInput={ searchArtistInput }
+                isSearching={ isSearching }
+                searchMade={ searchMade }
+                searchResults={ searchResults }
                 handleChange={ this.handleChange }
                 handleSearchButton={ this.handleSearchButton }
               />)

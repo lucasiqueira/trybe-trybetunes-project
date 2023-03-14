@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
+import MusicCard from './MusicCard';
 
 class Album extends Component {
   constructor() {
@@ -43,30 +44,7 @@ class Album extends Component {
                 <h2 data-testid="album-name">{ albumInfo.collectionName }</h2>
                 <h3 data-testid="artist-name">{ albumInfo.artistName }</h3>
               </div>
-              <div>
-                {
-                  albumMusics.map((music) => {
-                    console.log(music);
-                    return (
-                      <div key={ music.trackId }>
-                        <p>{music.trackName}</p>
-                        <audio
-                          data-testid="audio-component"
-                          src={ music.previewUrl }
-                          controls
-                        >
-                          <track kind="captions" />
-                          O seu navegador não suporta o elemento
-                          {' '}
-                          {' '}
-                          <code>audio</code>
-                          .
-                        </audio>
-                      </div>
-                    );
-                  })
-                }
-              </div>
+              <MusicCard albumMusics={ albumMusics } />
             </div>
           )
         }

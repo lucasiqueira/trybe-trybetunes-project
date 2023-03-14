@@ -23,8 +23,7 @@ class Album extends Component {
     this.setState({ isLoading: true }, async () => {
       const { match } = this.props;
       const { id } = match.params;
-      const musics = await getMusics(id);
-      const [albumInfo, ...albumMusics] = musics;
+      const [albumInfo, ...albumMusics] = await getMusics(id);
       this.setState({ albumMusics, albumInfo, isLoading: false });
     });
   };
@@ -48,7 +47,6 @@ class Album extends Component {
             </div>
           )
         }
-
       </div>
     );
   }

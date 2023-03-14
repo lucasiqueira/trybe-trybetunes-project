@@ -8,7 +8,8 @@ class Album extends Component {
   constructor() {
     super();
     this.state = {
-      musics: [],
+      albumMusics: [],
+      albumInfo: {},
       isLoading: false,
     };
   }
@@ -22,13 +23,13 @@ class Album extends Component {
       const { match } = this.props;
       const { id } = match.params;
       const musics = await getMusics(id);
-      this.setState({ musics, isLoading: false });
+      const [albumInfo, ...albumMusics] = musics;
+      this.setState({ albumMusics, albumInfo, isLoading: false });
     });
   };
 
   render() {
-    const { musics, isLoading } = this.state;
-    console.log(musics);
+    const { albumInfo, albumMusics, isLoading } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -38,26 +39,32 @@ class Album extends Component {
           ) : (
             <div>
               <div>
-                <img src={ musics[0]?.artworkUrl100 } alt={ musics[0]?.collectionName } />
-                <h2 data-testid="album-name">{ musics[0]?.collectionName }</h2>
-                <h3 data-testid="artist-name">{ musics[0]?.artistName }</h3>
+                <img src={ albumInfo.artworkUrl100 } alt={ albumInfo.collectionName } />
+                <h2 data-testid="album-name">{ albumInfo.collectionName }</h2>
+                <h3 data-testid="artist-name">{ albumInfo.artistName }</h3>
               </div>
               <div>
                 {
-                  musics.map((music) => (
-                    (music?.wrapperType === 'track') ? (
-                      <div key={ music?.trackId }>
-                        <p>{music?.trackName}</p>
-                        <audio data-testid="audio-component" src={ music?.previewUrl }>
+                  albumMusics.map((music) => {
+                    console.log(music);
+                    return (
+                      <div key={ music.trackId }>
+                        <p>{music.trackName}</p>
+                        <audio
+                          data-testid="audio-component"
+                          src={ music.previewUrl }
+                          controls
+                        >
                           <track kind="captions" />
                           O seu navegador não suporta o elemento
+                          {' '}
                           {' '}
                           <code>audio</code>
                           .
                         </audio>
                       </div>
-                    ) : null
-                  ))
+                    );
+                  })
                 }
               </div>
             </div>

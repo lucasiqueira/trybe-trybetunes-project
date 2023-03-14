@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
-import { addSong } from '../services/favoriteSongsAPI';
-import MusicContainer from './MusicContainer';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import MusicCard from './MusicCard';
 
 class Album extends Component {
   constructor() {
@@ -13,20 +13,41 @@ class Album extends Component {
       albumMusics: [],
       albumInfo: {},
       isAlbumPageLoading: false,
+      favoritesSongs: [],
     };
   }
 
   componentDidMount() {
     this.renderAlbum();
+    this.fetchFavoriteSongs();
   }
 
   handleFavoriteCheck = ({ target }) => {
     const id = Number(target.id.split('-')[2]);
     const { albumMusics } = this.state;
     const song = albumMusics.find((music) => music.trackId === id);
+    if (target.checked) {
+      this.setState({ isAlbumPageLoading: true }, async () => {
+        await addSong(song);
+        this.fetchFavoriteSongs();
+        this.setState({ isAlbumPageLoading: false });
+      });
+    } else {
+      this.setState({ isAlbumPageLoading: true }, async () => {
+        await removeSong(song);
+        this.fetchFavoriteSongs();
+        this.setState({ isAlbumPageLoading: false });
+      });
+    }
+  };
+
+  fetchFavoriteSongs = () => {
     this.setState({ isAlbumPageLoading: true }, async () => {
-      await addSong(song);
-      this.setState({ isAlbumPageLoading: false });
+      const favorites = await getFavoriteSongs();
+      this.setState({
+        favoritesSongs: favorites,
+        isAlbumPageLoading: false,
+      });
     });
   };
 
@@ -40,7 +61,7 @@ class Album extends Component {
   };
 
   render() {
-    const { albumInfo, albumMusics, isAlbumPageLoading } = this.state;
+    const { albumInfo, albumMusics, isAlbumPageLoading, favoritesSongs } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -54,11 +75,21 @@ class Album extends Component {
                 <h2 data-testid="album-name">{ albumInfo.collectionName }</h2>
                 <h3 data-testid="artist-name">{ albumInfo.artistName }</h3>
               </div>
-              <MusicContainer
-                albumMusics={ albumMusics }
-                isAlbumPageLoading={ isAlbumPageLoading }
-                handleFavoriteCheck={ this.handleFavoriteCheck }
-              />
+              <div>
+                {
+                  albumMusics.map((music) => (
+                    <MusicCard
+                      key={ music.trackId }
+                      trackId={ music.trackId }
+                      trackName={ music.trackName }
+                      previewUrl={ music.previewUrl }
+                      handleFavoriteCheck={ this.handleFavoriteCheck }
+                      favoritesSongs={ favoritesSongs }
+                      isAlbumPageLoading={ isAlbumPageLoading }
+                    />
+                  ))
+                }
+              </div>
             </div>
           )
         }

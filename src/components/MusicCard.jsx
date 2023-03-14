@@ -1,9 +1,34 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isChecked: false,
+    };
+  }
+
+  componentDidMount() {
+    this.verifyChecked();
+  }
+
+  verifyChecked = async () => {
+    const favorites = await getFavoriteSongs();
+    const { trackId } = this.props;
+    const result = favorites.some((music) => music.trackId === trackId);
+    this.setState({ isChecked: result });
+  };
+
   render() {
-    const { trackId, trackName, previewUrl, handleFavoriteCheck } = this.props;
+    const {
+      trackId,
+      trackName,
+      previewUrl,
+      handleFavoriteCheck,
+    } = this.props;
+    const { isChecked } = this.state;
     return (
       <div>
         <p>{trackName}</p>
@@ -26,6 +51,7 @@ class MusicCard extends Component {
             id={ `checkbox-music-${trackId}` }
             data-testid={ `checkbox-music-${trackId}` }
             onChange={ handleFavoriteCheck }
+            checked={ isChecked }
           />
           Favorita
         </label>

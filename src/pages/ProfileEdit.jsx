@@ -29,8 +29,9 @@ class ProfileEdit extends Component {
         editDescription: description,
         editImage: image,
         isLoading: false,
+      }, () => {
+        this.enableSaveButton();
       });
-      this.enableSaveButton();
     });
   };
 

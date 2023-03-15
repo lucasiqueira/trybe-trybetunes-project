@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
-import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import MusicCard from './MusicCard';
 
 class Album extends Component {
@@ -13,43 +12,12 @@ class Album extends Component {
       albumMusics: [],
       albumInfo: {},
       isAlbumPageLoading: false,
-      favoritesSongs: [],
     };
   }
 
   componentDidMount() {
     this.renderAlbum();
-    this.fetchFavoriteSongs();
   }
-
-  handleFavoriteCheck = ({ target }) => {
-    const id = Number(target.id.split('-')[2]);
-    const { albumMusics } = this.state;
-    const song = albumMusics.find((music) => music.trackId === id);
-    if (target.checked) {
-      this.setState({ isAlbumPageLoading: true }, async () => {
-        await addSong(song);
-        this.fetchFavoriteSongs();
-        this.setState({ isAlbumPageLoading: false });
-      });
-    } else {
-      this.setState({ isAlbumPageLoading: true }, async () => {
-        await removeSong(song);
-        this.fetchFavoriteSongs();
-        this.setState({ isAlbumPageLoading: false });
-      });
-    }
-  };
-
-  fetchFavoriteSongs = () => {
-    this.setState({ isAlbumPageLoading: true }, async () => {
-      const favorites = await getFavoriteSongs();
-      this.setState({
-        favoritesSongs: favorites,
-        isAlbumPageLoading: false,
-      });
-    });
-  };
 
   renderAlbum = async () => {
     this.setState({ isAlbumPageLoading: true }, async () => {
@@ -61,7 +29,7 @@ class Album extends Component {
   };
 
   render() {
-    const { albumInfo, albumMusics, isAlbumPageLoading, favoritesSongs } = this.state;
+    const { albumInfo, albumMusics, isAlbumPageLoading } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -77,16 +45,8 @@ class Album extends Component {
               </div>
               <div>
                 {
-                  albumMusics.map((music) => (
-                    <MusicCard
-                      key={ music.trackId }
-                      trackId={ music.trackId }
-                      trackName={ music.trackName }
-                      previewUrl={ music.previewUrl }
-                      handleFavoriteCheck={ this.handleFavoriteCheck }
-                      favoritesSongs={ favoritesSongs }
-                      isAlbumPageLoading={ isAlbumPageLoading }
-                    />
+                  albumMusics.map((song) => (
+                    <MusicCard key={ song.trackId } song={ song } />
                   ))
                 }
               </div>

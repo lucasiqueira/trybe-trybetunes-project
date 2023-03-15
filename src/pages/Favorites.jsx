@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Header from './Header';
-import Loading from './Loading';
-import MusicCard from './MusicCard';
+import Header from '../components/Header';
+import Loading from '../components/Loading';
+import MusicCard from '../components/MusicCard';
 
 class Favorites extends Component {
   state = {
@@ -23,7 +23,6 @@ class Favorites extends Component {
   fetchFavorites = () => {
     this.setState({ isLoading: true }, async () => {
       const favorites = await getFavoriteSongs();
-      console.log(favorites);
       this.setState({
         favorites,
         isLoading: false,

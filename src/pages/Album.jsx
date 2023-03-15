@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
+import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
-import Loading from './Loading';
-import MusicCard from './MusicCard';
+import Loading from '../components/Loading';
+import MusicCard from '../components/MusicCard';
 
 class Album extends Component {
   constructor() {

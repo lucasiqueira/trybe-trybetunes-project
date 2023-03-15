@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
-import Loading from './Loading';
-import AlbumSearchCard from './AlbumSearchCard';
+import Header from '../components/Header';
+import Loading from '../components/Loading';
+import AlbumSearchCard from '../components/AlbumSearchCard';
 
 class Search extends Component {
   render() {

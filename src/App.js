@@ -9,6 +9,7 @@ import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
 import searchAlbumsAPI from './services/searchAlbumsAPI';
 import { createUser } from './services/userAPI';
+import './App.css';
 
 class App extends React.Component {
   constructor() {

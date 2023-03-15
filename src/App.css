@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(289.33deg, #003BE5 -3.32%, #00D5E2 72.67%);
+  /* background-image: url('./assets/images/svg/background-blue.svg'); */
+  fill: black;
+  background-size: cover;
+  height: 100vh;
+}

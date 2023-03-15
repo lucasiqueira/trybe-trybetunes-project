@@ -1,0 +1,87 @@
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-login {
+  position: absolute;
+  width: 750px;
+  height: 450px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 26px rgba(68, 73, 85, 0.2);
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-login h1 {
+  display: none;
+}
+
+.login-name-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 65px;
+}
+
+.login-name-input {
+  box-sizing: border-box;
+  width: 400px;
+  height: 40px;
+  color: #003BE5;
+  border: 1px solid #003BE5;
+  border-radius: 100px;
+  margin-bottom: 6px;
+  font-family: 'Epilogue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+}
+
+.login-name-input::placeholder {
+  color: #003BE5;
+}
+
+.login-submit-button {
+  width: 400px;
+  height: 40px;
+  top: 464px;
+  color: #FFFFFF;
+  background: #003BE5;
+  border-radius: 100px;
+  font-family: 'Epilogue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+}
+
+.login-submit-button:hover {
+  background: #FFFFFF;
+  color: #003BE5;
+  border-color: #003BE5;
+}
+
+.login-submit-button:active {
+  color: #FFFFFF;
+  background: #003BE5;
+}
+
+.login-submit-button:disabled:hover {
+  background: gray;
+  color: #FFFFFF;
+  border-color: gray;
+}

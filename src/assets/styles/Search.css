@@ -1,0 +1,78 @@
+.page-search {
+  display: flex;
+  flex-wrap: wrap;
+  background: linear-gradient(123.66deg, #003be5 12.08%, #00d5e2 86.52%);
+  position: relative;
+  width: 100%;
+}
+
+.page-search-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  left: 250px;
+  position: absolute;
+  width: calc(100% - 250px);
+}
+
+.search-form {
+  height: 32.5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-artist-label {
+  position: relative;
+}
+
+.search-artist-label img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-60%, -50%);
+}
+
+.search-artist-input {
+  width: 335px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 23px;
+  border: none;
+  padding: 0 45px 0 20px;
+}
+
+.search-artist-input, .search-artist-input::placeholder {
+  margin-left: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Epilogue', sans-serif;
+
+}
+
+.search-artist-button {
+  background: #00d5e2;
+  border-radius: 23px;
+  color: white;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  text-transform: uppercase;
+  width: 114px;
+  border: none;
+  margin-left: 10px;
+}
+
+.search-results {
+  background: #eff3f9;
+  flex: 1;
+}

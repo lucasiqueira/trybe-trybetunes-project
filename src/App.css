@@ -8,9 +8,8 @@
 body {
   background: linear-gradient(289.33deg, #003be5 -3.32%, #00d5e2 72.67%);
   background-size: cover;
-
+  font-family: 'Epilogue', sans-serif;
   /* background-image: url('./assets/images/svg/background-blue.svg'); */
-  fill: black;
   height: 100vh;
 }
 

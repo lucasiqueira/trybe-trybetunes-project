@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import AlbumSearchCard from '../components/AlbumSearchCard';
+import '../assets/styles/Search.css';
+import searchInput from '../assets/images/svg/search-input-icon.svg';
 
 class Search extends Component {
   render() {
@@ -17,30 +19,36 @@ class Search extends Component {
     } = this.props;
     if (isSearching) return <Loading />;
     return (
-      <div data-testid="page-search">
-        <Header />
-        <div className="search-page">
-          <h1>Search</h1>
-          <form>
-            <label htmlFor="searchArtirtInput">
+      <div data-testid="page-search" className="page-search">
+        <section>
+          <Header />
+        </section>
+        <section className="page-search-section">
+          <h1 className="no-show">Search</h1>
+          <form className="search-form">
+            <label className="search-artist-label">
               <input
                 type="text"
                 data-testid="search-artist-input"
                 value={ searchArtistInput }
                 name="searchArtistInput"
                 onChange={ handleChange }
+                className="search-artist-input"
+                placeholder="DIGITE A SUA PESQUISA"
               />
+              <img src={ searchInput } alt="Lupa" />
             </label>
             <button
               type="submit"
               data-testid="search-artist-button"
+              className="search-artist-button"
               disabled={ searchDisabled }
               onClick={ handleSearchButton }
             >
               Pesquisar
             </button>
           </form>
-          <div>
+          <section className="search-results">
             <div>
               {
                 (searchMade && searchResults.length !== 0) ? (
@@ -58,8 +66,8 @@ class Search extends Component {
                 )
               }
             </div>
-          </div>
-        </div>
+          </section>
+        </section>
       </div>
     );
   }

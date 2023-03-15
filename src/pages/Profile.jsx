@@ -36,6 +36,9 @@ class Profile extends Component {
             <Loading />
           ) : (
             <div>
+              <div>
+                <Link to="/profile/edit">Editar perfil</Link>
+              </div>
               <img src={ image } alt="Foto do perfil" data-testid="profile-image" />
               <div>
                 <h4>Nome</h4>
@@ -48,9 +51,6 @@ class Profile extends Component {
               <div>
                 <h4>Descrição</h4>
                 <p>{description}</p>
-              </div>
-              <div>
-                <Link to="/profile/edit">Editar perfil</Link>
               </div>
             </div>
           )

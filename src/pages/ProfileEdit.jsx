@@ -1,8 +1,9 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import validateFields from '../helpers/validateFields';
-import { getUser } from '../services/userAPI';
+import { getUser, updateUser } from '../services/userAPI';
 
 class ProfileEdit extends Component {
   state = {
@@ -39,8 +40,24 @@ class ProfileEdit extends Component {
 
   enableSaveButton = () => {
     const enable = validateFields(this.state);
-    console.log(enable);
     this.setState({ buttonDisabled: !enable });
+  };
+
+  handleSaveButton = (e) => {
+    const { history } = this.props;
+    e.preventDefault();
+    this.setState({ isLoading: true }, async () => {
+      const { editName, editEmail, editDescription, editImage } = this.state;
+      const newData = {
+        name: editName,
+        email: editEmail,
+        description: editDescription,
+        image: editImage,
+      };
+      await updateUser(newData);
+      this.setState({ isLoading: false });
+    });
+    history.push('/profile');
   };
 
   render() {
@@ -109,6 +126,7 @@ class ProfileEdit extends Component {
                   type="submit"
                   data-testid="edit-button-save"
                   disabled={ buttonDisabled }
+                  onClick={ this.handleSaveButton }
                 >
                   Salvar
                 </button>
@@ -120,5 +138,11 @@ class ProfileEdit extends Component {
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default ProfileEdit;

@@ -19,43 +19,45 @@ class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <h1>Search</h1>
-        <form>
-          <label htmlFor="searchArtirtInput">
-            <input
-              type="text"
-              data-testid="search-artist-input"
-              value={ searchArtistInput }
-              name="searchArtistInput"
-              onChange={ handleChange }
-            />
-          </label>
-          <button
-            type="submit"
-            data-testid="search-artist-button"
-            disabled={ searchDisabled }
-            onClick={ handleSearchButton }
-          >
-            Pesquisar
-          </button>
-        </form>
-        <div>
+        <div className="search-page">
+          <h1>Search</h1>
+          <form>
+            <label htmlFor="searchArtirtInput">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                value={ searchArtistInput }
+                name="searchArtistInput"
+                onChange={ handleChange }
+              />
+            </label>
+            <button
+              type="submit"
+              data-testid="search-artist-button"
+              disabled={ searchDisabled }
+              onClick={ handleSearchButton }
+            >
+              Pesquisar
+            </button>
+          </form>
           <div>
-            {
-              (searchMade && searchResults.length !== 0) ? (
-                <span>{`Resultado de álbuns de: ${searchMade}`}</span>
-              ) : null
-            }
-          </div>
-          <div>
-            {
-              (searchResults.length === 0) ? (
-                <p>Nenhum álbum foi encontrado</p>
-              ) : (
-                searchResults
-                  .map((a) => <AlbumSearchCard album={ a } key={ a.collectionId } />)
-              )
-            }
+            <div>
+              {
+                (searchMade && searchResults.length !== 0) ? (
+                  <span>{`Resultado de álbuns de: ${searchMade}`}</span>
+                ) : null
+              }
+            </div>
+            <div>
+              {
+                (searchResults.length === 0) ? (
+                  <p>Nenhum álbum foi encontrado</p>
+                ) : (
+                  searchResults
+                    .map((a) => <AlbumSearchCard album={ a } key={ a.collectionId } />)
+                )
+              }
+            </div>
           </div>
         </div>
       </div>

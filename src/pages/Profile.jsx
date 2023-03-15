@@ -21,7 +21,6 @@ class Profile extends Component {
         isLoading: false,
         userInfo,
       });
-      console.log(userInfo);
     });
   };
 

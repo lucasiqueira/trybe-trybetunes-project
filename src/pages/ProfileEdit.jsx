@@ -30,6 +30,7 @@ class ProfileEdit extends Component {
         editImage: image,
         isLoading: false,
       });
+      this.enableSaveButton();
     });
   };
 
@@ -56,8 +57,8 @@ class ProfileEdit extends Component {
       };
       await updateUser(newData);
       this.setState({ isLoading: false });
+      history.push('/profile');
     });
-    history.push('/profile');
   };
 
   render() {

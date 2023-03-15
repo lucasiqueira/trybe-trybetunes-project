@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import validateFields from '../helpers/validateFields';
 import { getUser } from '../services/userAPI';
 
 class ProfileEdit extends Component {
@@ -37,13 +38,8 @@ class ProfileEdit extends Component {
   };
 
   enableSaveButton = () => {
-    const {
-      editName,
-      editEmail,
-      editImage,
-      editDescription,
-    } = this.state;
-    const enable = editName && editEmail && editImage && editDescription;
+    const enable = validateFields(this.state);
+    console.log(enable);
     this.setState({ buttonDisabled: !enable });
   };
 

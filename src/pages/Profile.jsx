@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
@@ -47,6 +48,9 @@ class Profile extends Component {
               <div>
                 <h4>Descrição</h4>
                 <p>{description}</p>
+              </div>
+              <div>
+                <Link to="/profile/edit">Editar perfil</Link>
               </div>
             </div>
           )

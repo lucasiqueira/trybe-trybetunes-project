@@ -17,7 +17,7 @@ class MusicCard extends Component {
   }
 
   handleChange = ({ target }) => {
-    const { song } = this.props;
+    const { song, removeFavoriteSong } = this.props;
     this.setState({ isLoading: true }, async () => {
       if (target.checked) {
         await addSong(song);
@@ -27,6 +27,7 @@ class MusicCard extends Component {
         });
       } else {
         await removeSong(song);
+        removeFavoriteSong(song.trackId);
         this.setState({
           isLoading: false,
           isChecked: false,
@@ -67,7 +68,7 @@ class MusicCard extends Component {
           <code>audio</code>
           .
         </audio>
-        <label htmlFor="checkboxMusic">
+        <label>
           <input
             type="checkbox"
             name="checkboxMusic"
@@ -89,6 +90,7 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  removeFavoriteSong: PropTypes.func.isRequired,
 };
 
 export default MusicCard;

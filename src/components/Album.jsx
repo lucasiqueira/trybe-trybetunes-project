@@ -46,7 +46,7 @@ class Album extends Component {
               <div>
                 {
                   albumMusics.map((song) => (
-                    <MusicCard key={ song.trackId } song={ song } />
+                    <MusicCard key={ song.trackId } song={ song } removeFavoriteSong={()=> {}} />
                   ))
                 }
               </div>

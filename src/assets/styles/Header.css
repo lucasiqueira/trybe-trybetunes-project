@@ -1,58 +1,57 @@
 header {
-  position: absolute;
-  width: 250px;
-  height: 100vh;
-  left: 0px;
-  top: 0px;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background: white;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 250px;
 }
 
 .header-container {
   display: flex;
   flex-direction: column;
+  height: 90%;
   justify-content: space-between;
   width: 68%;
-  height: 90%;
 }
 
 .logo-header {
-  width: 170px;
   align-self: center;
+  width: 170px;
 }
 
 .profile-image {
-  width: 40px;
+  border-radius: 19.608px;
   height: 40px;
-  border-radius: 19.6078px;
+  width: 40px;
 }
 
 .link-div {
-  margin: 50px 0;
-  display: flex;
   align-items: center;
+  display: flex;
+  margin: 50px 0;
 }
 
 .link-div img {
   margin-right: 21px;
 }
 
-.link-header,
-.profile-data-in-header span {
+.link-header, .profile-data-in-header span {
+  color: #444955;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
   letter-spacing: 0.03em;
-  text-transform: capitalize;
-  color: #444955;
   text-decoration: none;
+  text-transform: capitalize;
 }
 
 .profile-data-in-header {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .profile-data-in-header img {

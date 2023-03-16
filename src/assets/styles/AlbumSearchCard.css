@@ -1,0 +1,38 @@
+.album-card {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.album-link {
+  text-decoration: none;
+}
+
+.album-img-in-search {
+  width: 200px;
+  height: 200px;
+  left: calc(50% - 200px/2 - 213px);
+  top: calc(50% - 200px/2 + 114px);
+  mix-blend-mode: normal;
+  border-radius: 10px;
+}
+
+.album-title-in-search {
+  left: calc(50% - 147px/2 - 239.5px);
+  top: calc(50% - 18px/2 + 236.45px);
+  font-weight: 700;
+  font-size: 12.0698px;
+  line-height: 150%;
+  color: #3D495C;
+  text-decoration: none;
+  margin: 13px 0 6px;
+}
+
+.album-artist-in-search {
+left: calc(50% - 147px/2 - 239.5px);
+top: calc(50% - 14px/2 + 255.45px);
+font-weight: 400;
+font-size: 9.05234px;
+line-height: 150%;
+color: #3D495C;
+}

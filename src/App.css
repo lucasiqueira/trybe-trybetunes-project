@@ -13,6 +13,13 @@ body {
   height: 100vh;
 }
 
+.page-with-header {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+
 .no-show {
   display: none;
 }

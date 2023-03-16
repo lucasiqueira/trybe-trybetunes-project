@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import AlbumSearchCard from '../components/AlbumSearchCard';
 import '../assets/styles/Search.css';
 import searchInput from '../assets/images/svg/search-input-icon.svg';
+import albumNotFound from '../assets/images/svg/album-not-found.svg';
 
 class Search extends Component {
   render() {
@@ -19,7 +20,7 @@ class Search extends Component {
     } = this.props;
     if (isSearching) return <Loading />;
     return (
-      <div data-testid="page-search" className="page-search">
+      <div data-testid="page-search" className="page-search page-with-header">
         <section>
           <Header />
         </section>
@@ -49,17 +50,26 @@ class Search extends Component {
             </button>
           </form>
           <section className="search-results">
-            <div>
+            <div className="search-title">
               {
                 (searchMade && searchResults.length !== 0) ? (
-                  <span>{`Resultado de álbuns de: ${searchMade}`}</span>
+                  <span>
+                    {`Resultado de álbuns de ${searchMade.toUpperCase()}:`}
+                  </span>
                 ) : null
               }
             </div>
-            <div>
+            <div className="album-results">
               {
                 (searchResults.length === 0) ? (
-                  <p>Nenhum álbum foi encontrado</p>
+                  <div className="album-not-found-div">
+                    <img
+                      src={ albumNotFound }
+                      alt="Não encontrado"
+                      className="album-not-found-img"
+                    />
+                    <p className="album-not-found-text">Nenhum álbum foi encontrado</p>
+                  </div>
                 ) : (
                   searchResults
                     .map((a) => <AlbumSearchCard album={ a } key={ a.collectionId } />)

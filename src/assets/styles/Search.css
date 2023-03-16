@@ -1,9 +1,5 @@
 .page-search {
-  display: flex;
-  flex-wrap: wrap;
   background: linear-gradient(123.66deg, #003be5 12.08%, #00d5e2 86.52%);
-  position: relative;
-  width: 100%;
 }
 
 .page-search-section {
@@ -13,6 +9,7 @@
   left: 250px;
   position: absolute;
   width: calc(100% - 250px);
+  height: 100vh;
 }
 
 .search-form {
@@ -75,4 +72,46 @@
 .search-results {
   background: #eff3f9;
   flex: 1;
+  height: 100px;
+}
+
+.album-results {
+  width: 100%;
+  height: 100%;
+}
+
+.album-not-found-div {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column ;
+  align-items: center;
+}
+
+.album-not-found-img {
+  height: 69.04px;
+  width: 69.04px;
+  margin-bottom: 30px;
+}
+
+.album-not-found-text {
+  width: 448px;
+  height: 31px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 31px;
+  text-align: center;
+  color: #C0C3C9;
+}
+
+.search-title {
+  height: 24.89px;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #003BE5;
+  margin: 63px 0 52px;
 }

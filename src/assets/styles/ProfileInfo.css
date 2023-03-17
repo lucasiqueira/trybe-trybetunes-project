@@ -1,0 +1,42 @@
+.profile-info-section {
+  position: absolute;
+  left: 400px;
+  margin-top: 30px;
+}
+
+.profile-info-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #3D495C;
+}
+
+.profile-info-text {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #3D495C;
+}
+
+.edit-profile-button {
+  margin-top: 20px;
+  width: 152px;
+  height: 40px;
+  background: #003BE5;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-profile-button-link {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}

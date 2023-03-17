@@ -24,9 +24,9 @@ class Search extends Component {
         <section>
           <Header />
         </section>
-        <section className="page-search-section">
+        <section className="page-search-section general-page-section">
           <h1 className="no-show">Search</h1>
-          <form className="search-form">
+          <form className="search-form general-article-header">
             <label className="search-artist-label">
               <input
                 type="text"
@@ -49,7 +49,7 @@ class Search extends Component {
               Pesquisar
             </button>
           </form>
-          <section className="search-results">
+          <section className="search-results general-results">
             <div className="search-title">
               {
                 (searchMade && searchResults.length !== 0) ? (

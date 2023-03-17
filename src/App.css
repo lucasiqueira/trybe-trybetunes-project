@@ -13,6 +13,15 @@ body {
   height: 100vh;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #C0C3C9;
+  border-radius: 20px;
+}
+
 #root {
   width: 100%;
   height: 100%;
@@ -25,6 +34,36 @@ body {
   width: 100%;
 }
 
+.general-page-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  left: 250px;
+  position: absolute;
+  width: calc(100% - 250px);
+  height: 100vh;
+}
+
 .no-show {
   display: none;
+}
+
+article {
+  height: 100%;
+}
+
+.general-article-header {
+  height: 32.5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.general-results {
+  background: #eff3f9;
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,0 +1,15 @@
+.page-profile {
+  background: linear-gradient(233.85deg, #003BE5 9.07%, #00D5E2 61.81%);
+}
+
+.profile-image-big {
+  width: 240px;
+  height: 240px;
+  filter: drop-shadow(-9px 8px 8px rgba(0, 0, 0, 0.2));
+  border-radius: 240px;
+  position: absolute;
+  left: 100px;
+  z-index: 3;
+  transform: translateY(-50%);
+  background-color: white;
+}

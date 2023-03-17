@@ -1,0 +1,29 @@
+.page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.ops {
+  height: 66.02px;
+  font-weight: 600;
+  font-size: 122.263px;
+  line-height: 125px;
+  letter-spacing: 0.02em;
+  color: #003BE5;
+}
+
+.not-found-text {
+  margin-left: 30px;
+  font-weight: 300;
+  font-size: 36.6788px;
+  line-height: 40px;
+  width: 300px;
+  /* or 108% */
+
+  letter-spacing: 0.02em;
+
+  color: #00D5E2;
+}

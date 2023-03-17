@@ -20,11 +20,11 @@ class ProfileInfo extends Component {
           <h4 className="profile-info-title">Descrição</h4>
           <p className="profile-info-text">{description}</p>
         </div>
-        <div className="edit-profile-button">
+        <button className="edit-profile-button">
           <Link to="/profile/edit" className="edit-profile-button-link">
             Editar perfil
           </Link>
-        </div>
+        </button>
       </section>
     );
   }

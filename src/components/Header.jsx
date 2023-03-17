@@ -75,8 +75,8 @@ class Header extends Component {
             <span className="no-show">Bem-vindo, </span>
             <img
               src={
-                (localStorage.getItem('user').image)
-                  ? (localStorage.getItem('user').image) : (profileIcon)
+                (localStorage.getItem('user').image !== '')
+                  ? (JSON.parse(localStorage.getItem('user')).image) : (profileIcon)
               }
               alt="Profile"
               className="profile-image"

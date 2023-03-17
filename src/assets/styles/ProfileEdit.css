@@ -1,0 +1,75 @@
+.input-img-link {
+  width: 192px;
+  height: 37px;
+  left: 124px;
+  top: 450px;
+  position: absolute;
+  border: 1px solid #444955;
+  border-radius: 2px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: #3D495C;
+  background: #c5c9ce00;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  text-align: center;
+}
+
+.input-img-link::placeholder {
+  text-align: center;
+}
+
+.edit-input {
+  margin-bottom: 25px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: #3D495C;
+  background: #c5c9ce00;
+}
+
+.edit-input:active {
+  background: #F0F2F5;
+}
+
+.edit-input::placeholder {
+  color: #C5C9CE;
+}
+
+.edit-name, .edit-email, .edit-description {
+  width: 400px;
+  height: 37px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.edit-description {
+  resize: none;
+  height: 150px;
+  width: 600px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #3D495C;
+  background: #c5c9ce00;
+}
+
+.edit-description::-webkit-scrollbar {
+  width: 12px;
+}
+
+.edit-description::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+.edit-description::-webkit-scrollbar-thumb {
+  background-color: #C0C3C9;
+  border-radius: 20px;
+}

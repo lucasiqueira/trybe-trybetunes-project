@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import validateFields from '../helpers/validateFields';
 import { getUser, updateUser } from '../services/userAPI';
+import profileIcon from '../assets/images/svg/profile-icon.svg';
+import '../assets/styles/ProfileEdit.css';
 
 class ProfileEdit extends Component {
   state = {
@@ -72,68 +74,83 @@ class ProfileEdit extends Component {
       buttonDisabled,
     } = this.state;
     return (
-      <div data-testid="page-profile-edit">
-        <Header />
+      <div data-testid="page-profile-edit" className="profile-edit-page page-with-header">
+        <section>
+          <Header />
+        </section>
         {
           (isLoading) ? (
             <Loading />
           ) : (
-            <div>
-              <form>
-                <label>
-                  <p>Nome</p>
-                  <input
-                    type="text"
-                    data-testid="edit-input-name"
-                    value={ editName }
-                    name="editName"
-                    id="edit-name"
-                    onChange={ this.handleChange }
-                  />
-                </label>
-                <label>
-                  <p>E-mail</p>
-                  <input
-                    type="text"
-                    data-testid="edit-input-email"
-                    value={ editEmail }
-                    name="editEmail"
-                    id="edit-email"
-                    onChange={ this.handleChange }
-                  />
-                </label>
-                <label>
-                  <p>Descrição</p>
-                  <input
-                    type="text"
-                    data-testid="edit-input-description"
-                    value={ editDescription }
-                    name="editDescription"
-                    id="edit-description"
-                    onChange={ this.handleChange }
-                  />
-                </label>
-                <label>
-                  <p>Foto do Perfil</p>
-                  <input
-                    type="text"
-                    data-testid="edit-input-image"
-                    value={ editImage }
-                    name="editImage"
-                    id="edit-image"
-                    onChange={ this.handleChange }
-                  />
-                </label>
-                <button
-                  type="submit"
-                  data-testid="edit-button-save"
-                  disabled={ buttonDisabled }
-                  onClick={ this.handleSaveButton }
-                >
-                  Salvar
-                </button>
-              </form>
-            </div>
+            <section className="general-page-section">
+              <section className="general-article-header" />
+              <section className="general-results">
+                <img
+                  src={
+                    (JSON.parse(localStorage.getItem('user')).image) || (profileIcon)
+                  }
+                  alt="Profile"
+                  className="profile-image-big"
+                  data-testid="profile-image"
+                />
+                <input
+                  type="text"
+                  data-testid="edit-input-image"
+                  value={ editImage }
+                  name="editImage"
+                  id="edit-image"
+                  onChange={ this.handleChange }
+                  className="input-img-link"
+                  placeholder="insira um link"
+                />
+                <form className="profile-info-section">
+                  <label>
+                    <p className="profile-info-title">Nome</p>
+                    <input
+                      type="text"
+                      data-testid="edit-input-name"
+                      value={ editName }
+                      name="editName"
+                      id="edit-name"
+                      className="edit-name edit-input"
+                      onChange={ this.handleChange }
+                    />
+                  </label>
+                  <label>
+                    <p className="profile-info-title">E-mail</p>
+                    <input
+                      type="text"
+                      data-testid="edit-input-email"
+                      value={ editEmail }
+                      name="editEmail"
+                      id="edit-email"
+                      className="edit-email edit-input"
+                      onChange={ this.handleChange }
+                    />
+                  </label>
+                  <label>
+                    <p className="profile-info-title">Descrição</p>
+                    <textarea
+                      data-testid="edit-input-description"
+                      value={ editDescription }
+                      name="editDescription"
+                      id="edit-description"
+                      onChange={ this.handleChange }
+                      className="edit-description"
+                    />
+                  </label>
+                  <button
+                    type="submit"
+                    data-testid="edit-button-save"
+                    disabled={ buttonDisabled }
+                    onClick={ this.handleSaveButton }
+                    className="edit-profile-button edit-profile-button-link"
+                  >
+                    Salvar
+                  </button>
+                </form>
+              </section>
+            </section>
           )
         }
       </div>

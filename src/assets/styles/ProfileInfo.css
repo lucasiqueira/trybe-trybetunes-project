@@ -2,6 +2,7 @@
   position: absolute;
   left: 400px;
   margin-top: 30px;
+  padding-right: 15%;
 }
 
 .profile-info-title {
@@ -28,6 +29,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  cursor: pointer;
 }
 
 .edit-profile-button-link {
@@ -39,4 +42,9 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #FFFFFF;
+  font-family: Epilogue;
+}
+
+.edit-profile-button:disabled {
+  background: #3D495C;
 }

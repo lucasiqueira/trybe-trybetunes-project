@@ -37,6 +37,7 @@
   border-radius: 100px;
   box-sizing: border-box;
   color: #003be5;
+  font-family: Epilogue , sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -44,7 +45,6 @@
   line-height: 14px;
   margin-bottom: 6px;
   text-align: center;
-  font-family: 'Epilogue', sans-serif;
   width: 400px;
 }
 

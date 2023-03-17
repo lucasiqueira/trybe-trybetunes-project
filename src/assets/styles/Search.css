@@ -14,86 +14,85 @@
 }
 
 .search-artist-input {
-  width: 335px;
-  height: 40px;
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 23px;
   border: none;
+  border-radius: 23px;
+  height: 40px;
   padding: 0 45px 0 20px;
+  width: 335px;
 }
 
 .search-artist-input, .search-artist-input::placeholder {
-  margin-left: 20px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
   color: white;
-  font-family: 'Epilogue', sans-serif;
-
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  margin-left: 20px;
+  text-transform: uppercase;
 }
 
 .search-artist-button {
   background: #00d5e2;
+  border: none;
   border-radius: 23px;
   color: white;
-  font-family: 'Epilogue', sans-serif;
+  font-family: Epilogue , sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   height: 40px;
   letter-spacing: 0.03em;
   line-height: 14px;
+  margin-left: 10px;
   text-transform: uppercase;
   width: 114px;
-  border: none;
-  margin-left: 10px;
 }
 
 .album-results {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-flow: row wrap;
+  height: 100%;
   justify-content: center;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .album-not-found-div {
+  align-items: center;
   display: flex;
-  width: 100%;
+  flex-direction: column;
   height: 100%;
   justify-content: center;
-  flex-direction: column ;
-  align-items: center;
+  width: 100%;
 }
 
 .album-not-found-img {
   height: 69.04px;
-  width: 69.04px;
   margin-bottom: 30px;
+  width: 69.04px;
 }
 
 .album-not-found-text {
-  width: 448px;
-  height: 31px;
-  font-weight: 400;
+  color: #c0c3c9;
   font-size: 30px;
+  font-weight: 400;
+  height: 31px;
   line-height: 31px;
   text-align: center;
-  color: #C0C3C9;
+  width: 448px;
 }
 
 .search-title {
-  height: 24.89px;
+  color: #003be5;
+  font-size: 20px;
   font-style: italic;
   font-weight: 300;
-  font-size: 20px;
+  height: 24.89px;
   line-height: 20px;
-  text-align: center;
-  color: #003BE5;
   margin: 63px 0 52px;
+  text-align: center;
 }
 
 .album-results::-webkit-scrollbar {
@@ -101,6 +100,6 @@
 }
 
 .album-results::-webkit-scrollbar-thumb {
-  background-color: #C0C3C9;
+  background-color: #c0c3c9;
   border-radius: 20px;
 }

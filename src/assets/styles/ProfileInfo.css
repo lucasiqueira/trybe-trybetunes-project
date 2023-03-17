@@ -1,50 +1,50 @@
 .profile-info-section {
-  position: absolute;
   left: 400px;
   margin-top: 30px;
   padding-right: 15%;
+  position: absolute;
 }
 
 .profile-info-title {
-  font-weight: 700;
+  color: #3d495c;
   font-size: 16px;
+  font-weight: 700;
   line-height: 150%;
-  color: #3D495C;
 }
 
 .profile-info-text {
-  margin-bottom: 30px;
-  font-weight: 400;
+  color: #3d495c;
   font-size: 14px;
+  font-weight: 400;
   line-height: 150%;
-  color: #3D495C;
+  margin-bottom: 30px;
 }
 
 .edit-profile-button {
+  align-items: center;
+  background: #003be5;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: center;
   margin-top: 20px;
   width: 152px;
-  height: 40px;
-  background: #003BE5;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  cursor: pointer;
 }
 
 .edit-profile-button-link {
-  text-decoration: none;
-  font-weight: 700;
+  color: white;
+  font-family: Epilogue , sans-serif;
   font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   line-height: 14px;
   text-align: center;
-  letter-spacing: 0.03em;
+  text-decoration: none;
   text-transform: uppercase;
-  color: #FFFFFF;
-  font-family: Epilogue;
 }
 
 .edit-profile-button:disabled {
-  background: #3D495C;
+  background: #3d495c;
 }

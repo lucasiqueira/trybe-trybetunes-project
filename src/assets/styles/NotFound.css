@@ -1,29 +1,26 @@
 .page-not-found {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100vw;
+  display: flex;
   height: 100vh;
+  justify-content: center;
+  width: 100vw;
 }
 
 .ops {
-  height: 66.02px;
-  font-weight: 600;
+  color: #003be5;
   font-size: 122.263px;
-  line-height: 125px;
+  font-weight: 600;
+  height: 66.02px;
   letter-spacing: 0.02em;
-  color: #003BE5;
+  line-height: 125px;
 }
 
 .not-found-text {
-  margin-left: 30px;
+  color: #00d5e2;
+  font-size: 36.67px;
   font-weight: 300;
-  font-size: 36.6788px;
-  line-height: 40px;
-  width: 300px;
-  /* or 108% */
-
   letter-spacing: 0.02em;
-
-  color: #00D5E2;
+  line-height: 40px;
+  margin-left: 30px;
+  width: 300px;
 }

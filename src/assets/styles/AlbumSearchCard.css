@@ -1,8 +1,8 @@
 .album-card {
-  width: 200px;
   height: 300px;
-  overflow: hidden;
   margin: 0 12px;
+  overflow: hidden;
+  width: 200px;
 }
 
 .album-link {
@@ -10,30 +10,30 @@
 }
 
 .album-img-in-search {
-  width: 200px;
+  border-radius: 10px;
   height: 200px;
   left: calc(50% - 200px/2 - 213px);
-  top: calc(50% - 200px/2 + 114px);
   mix-blend-mode: normal;
-  border-radius: 10px;
+  top: calc(50% - 200px/2 + 114px);
+  width: 200px;
 }
 
 .album-title-in-search {
-  left: calc(50% - 147px/2 - 239.5px);
-  top: calc(50% - 18px/2 + 236.45px);
+  color: #3d495c;
+  font-size: 12.067px;
   font-weight: 700;
-  font-size: 12.0698px;
+  left: calc(50% - 147px/2 - 239.5px);
   line-height: 150%;
-  color: #3D495C;
-  text-decoration: none;
   margin: 13px 0 6px;
+  text-decoration: none;
+  top: calc(50% - 18px/2 + 236.45px);
 }
 
 .album-artist-in-search {
-left: calc(50% - 147px/2 - 239.5px);
-top: calc(50% - 14px/2 + 255.45px);
-font-weight: 400;
-font-size: 9.05234px;
-line-height: 150%;
-color: #3D495C;
+  color: #3d495c;
+  font-size: 9.052px;
+  font-weight: 400;
+  left: calc(50% - 147px/2 - 239.5px);
+  line-height: 150%;
+  top: calc(50% - 14px/2 + 255.45px);
 }

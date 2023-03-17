@@ -1,17 +1,17 @@
 .loading-container {
-  width: 100%;
-  height: 100%;
+  align-items: center;
+  background-color: #eff3f9;
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: center;
-  align-items: center;
-  background-color: #EFF3F9;
+  width: 100%;
 }
 
 .loading-text {
-  margin-top: 37px;
-  font-size: 48.9205px;
+  color: #c0c3c9;
+  font-size: 48.92px;
   line-height: 50px;
+  margin-top: 37px;
   text-align: center;
-  color: #C0C3C9;
 }
